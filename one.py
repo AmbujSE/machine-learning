@@ -4,6 +4,7 @@ from selenium.webdriver.common.keys import Keys
 from pytube import YouTube
 import time
 
+
 def download_youtube_video(search_term):
     # Set up Selenium WebDriver (ensure the WebDriver for your browser is installed and path is set)
     driver = webdriver.Chrome()  # You can use other browsers like Firefox, Edge, etc.
@@ -20,23 +21,23 @@ def download_youtube_video(search_term):
     driver.find_element(By.XPATH, "//*[@id='filter-button']/ytd-button-renderer/yt-button-shape/button/yt-touch-feedback-shape/div/div[2]").click()
     driver.implicitly_wait(10)
 
-    # Find the first video element
-    video_element = driver.find_element(By.XPATH, '//a[@id="video-title"]')
+    # Find the first video.py element
+    video_element = driver.find_element(By.XPATH, '//a[@id="video.py-title"]')
 
-    # Get the URL of the video
+    # Get the URL of the video.py
     video_url = video_element.get_attribute("href")
 
     # Close the browser
     driver.quit()
 
-    # Download the video using pytube
+    # Download the video.py using pytube
     try:
         yt = YouTube(video_url)
         best_stream = yt.streams.get_highest_resolution()
         best_stream.download()
         print("Video downloaded successfully!")
     except Exception as e:
-        print("Error downloading video:", e)
+        print("Error downloading video.py:", e)
 
 
 if __name__ == "__main__":

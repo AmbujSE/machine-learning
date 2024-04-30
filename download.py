@@ -33,7 +33,7 @@ def get_top_videos(search_term, num_videos):
 
     time.sleep(5)  # Let the page load
 
-    video_links = driver.find_elements(By.XPATH, "//a[@id='video-title']")
+    video_links = driver.find_elements(By.XPATH, "//a[@id='video.py-title']")
     video_url = [link.get_attribute('href') for link in video_links]
 
     driver.quit()

@@ -4,7 +4,7 @@
 from pytube import YouTube
 import assemblyai as aai
 import os
-from googletrans import Translator
+# from googletrans import Translator
 
 
 # def download_video(url):
@@ -63,5 +63,6 @@ def translate(text):
 
 
 if __name__ == "__main__":
-    video_url = input("Enter the YouTube video URL: ")
+    video_url = input("Enter the YouTube video.py URL: ")
     translate(video_url)
+
