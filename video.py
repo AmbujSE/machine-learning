@@ -29,16 +29,24 @@ def download_audio(link):
 
 def get_transcription(link):
     audio_file = download_audio(link)
-    aai.settings.api_key = ""
+    output_filename = "audio_file.name.txt"
+    aai.settings.api_key = "9f1b8c5ed3a5410b8ff252798d4a4b6f"
 
     transcriber = aai.Transcriber()
     transcript = transcriber.transcribe(audio_file)
     print(transcript.text)
-    return transcript.text
+    with open(output_filename, 'w', encoding='utf-8') as output_file:
+        # Write the translated text to the file
+        output_file.write(transcript.text)
 
 
 if __name__ == "__main__":
     video_url = input("Enter the YouTube video.py URL: ")
-    # download_video(video_url)
-    # download_audio(video_url)
-    get_transcription(video_url)
+    ans = input("'v' for Video, 't' for transcription.")
+    if ans == 'v':
+        download_video(video_url)
+        # get_transcription(video_url)
+
+    else:
+        # download_audio(video_url)
+        get_transcription(video_url)
